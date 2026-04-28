@@ -117,8 +117,26 @@ document.addEventListener('DOMContentLoaded', () => {
         bgMusic.volume = 0.25;
     }
 
+    const RANDOM_SONGS = [
+        "script/Aku Milikmu - Dewa 19 (Lyrics Video).mp3",
+        "script/Chrisye - Untukku (Official Music Video) [n6TmzCGSKgY].mp3",
+        "script/Nadhif Basalamah - kota ini tak sama tanpamu (Official Lyric Video).mp3",
+        "script/Perunggu - Ini Abadi (Video Lirik).mp3",
+        "script/Sal Priadi & Nadin Amizah - Amin Paling Serius (Official Audio) [ZRMDxjRdJV8].mp3"
+    ];
+
+    let songPicked = false;
+
     function tryPlayMusic() {
         if (musicPlaying || !bgMusic) return;
+        
+        // Pick random song the first time it plays
+        if (!songPicked) {
+            const randomSong = RANDOM_SONGS[Math.floor(Math.random() * RANDOM_SONGS.length)];
+            bgMusic.src = randomSong;
+            songPicked = true;
+        }
+
         const p = bgMusic.play();
         if (p !== undefined) {
             p.then(() => {
