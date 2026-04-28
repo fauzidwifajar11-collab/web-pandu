@@ -549,20 +549,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const vw = window.innerWidth;
         const vh = window.innerHeight;
         
-        let scale;
-        if (vh > vw) {
-            // Portrait mode: Rotate 90deg to fill screen better
-            document.documentElement.style.setProperty('--scrap-rotate', '90deg');
-            const scaleByW = (vw * 0.97) / CANVAS_H;
-            const scaleByH = (vh * 0.97) / CANVAS_W;
-            scale = Math.min(scaleByW, scaleByH);
-        } else {
-            // Landscape mode
-            document.documentElement.style.setProperty('--scrap-rotate', '0deg');
-            const scaleByW = (vw * 0.97) / CANVAS_W;
-            const scaleByH = (vh * 0.97) / CANVAS_H;
-            scale = Math.min(scaleByW, scaleByH);
-        }
+        // Always keep straight (no rotation), scale to fit viewport
+        document.documentElement.style.setProperty('--scrap-rotate', '0deg');
+        const scaleByW = (vw * 0.97) / CANVAS_W;
+        const scaleByH = (vh * 0.97) / CANVAS_H;
+        const scale = Math.min(scaleByW, scaleByH);
         document.documentElement.style.setProperty('--scrap-scale', scale.toFixed(4));
     }
     updateScrapbookScale();
