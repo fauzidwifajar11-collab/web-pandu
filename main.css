@@ -728,7 +728,7 @@ body {
 }
 
 .envelope-wrapper.opening .photo-left {
-    transform: scale(0.8) translate(-130px, -90px) rotate(-5deg);
+    transform: scale(0.6) translate(-130px, -90px) rotate(-5deg);
     opacity: 1;
 }
 
@@ -740,7 +740,7 @@ body {
 }
 
 .envelope-wrapper.opening .photo-left-2 {
-    transform: scale(0.8) translate(-180px, -190px) rotate(-15deg);
+    transform: scale(0.6) translate(-180px, -190px) rotate(-15deg);
     opacity: 1;
 }
 
@@ -752,7 +752,7 @@ body {
 }
 
 .envelope-wrapper.opening .photo-left-3 {
-    transform: scale(0.8) translate(-60px, -250px) rotate(10deg);
+    transform: scale(0.6) translate(-60px, -250px) rotate(10deg);
     opacity: 1;
 }
 
@@ -780,7 +780,7 @@ body {
 }
 
 .envelope-wrapper.opening .pol-1 {
-    transform: scale(0.8) translate(40px, -260px) rotate(-15deg);
+    transform: scale(0.6) translate(40px, -260px) rotate(-15deg);
     opacity: 1;
 }
 
@@ -792,7 +792,7 @@ body {
 }
 
 .envelope-wrapper.opening .pol-2 {
-    transform: scale(0.8) translate(160px, -230px) rotate(15deg);
+    transform: scale(0.6) translate(160px, -230px) rotate(15deg);
     opacity: 1;
 }
 
@@ -804,7 +804,7 @@ body {
 }
 
 .envelope-wrapper.opening .pol-3 {
-    transform: scale(0.8) translate(80px, -150px) rotate(-5deg);
+    transform: scale(0.6) translate(80px, -150px) rotate(-5deg);
     opacity: 1;
 }
 
@@ -816,7 +816,7 @@ body {
 }
 
 .envelope-wrapper.opening .pol-4 {
-    transform: scale(0.8) translate(190px, -120px) rotate(20deg);
+    transform: scale(0.6) translate(190px, -120px) rotate(20deg);
     opacity: 1;
 }
 

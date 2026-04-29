@@ -638,7 +638,7 @@ document.addEventListener('DOMContentLoaded', () => {
         
         // Perbesar (zoom in) khusus di HP agar tidak terlalu jauh
         if (vw < 768) {
-            scale = scale * 1.6;
+            scale = scale * 2.2;
         }
         
         document.documentElement.style.setProperty('--scrap-scale', scale.toFixed(4));
