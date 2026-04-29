@@ -157,4 +157,17 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         observerPlaylist.observe(page7, { attributes: true, attributeFilter: ['class'] });
     }
+
+    // Toggle songs section
+    const songsToggle = document.getElementById('fav-songs-toggle');
+    const songsList = document.getElementById('fav-songs-list');
+    if (songsToggle && songsList) {
+        songsToggle.addEventListener('click', () => {
+            songsList.classList.toggle('collapsed');
+            const arrow = songsToggle.querySelector('.fav-toggle-arrow');
+            if (arrow) {
+                arrow.classList.toggle('collapsed');
+            }
+        });
+    }
 });

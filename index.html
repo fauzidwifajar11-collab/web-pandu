@@ -35,6 +35,22 @@
         </svg>
     </button>
 
+    <!-- MUSIC MENU -->
+    <div id="music-menu" class="music-menu hidden">
+        <div class="music-menu-header">
+            <h4>Pilih Lagu</h4>
+            <button id="music-menu-close">✕</button>
+        </div>
+        <div class="music-menu-list">
+            <div class="music-option" data-src="script/Aku Milikmu - Dewa 19 (Lyrics Video).mp3">🎵 Aku Milikmu - Dewa 19</div>
+            <div class="music-option" data-src="script/Chrisye - Untukku (Official Music Video) [n6TmzCGSKgY].mp3">🎵 Untukku - Chrisye</div>
+            <div class="music-option" data-src="script/Nadhif Basalamah - kota ini tak sama tanpamu (Official Lyric Video).mp3">🎵 kota ini tak sama tanpamu</div>
+            <div class="music-option" data-src="script/Perunggu - Ini Abadi (Video Lirik).mp3">🎵 Ini Abadi - Perunggu</div>
+            <div class="music-option" data-src="script/Sal Priadi & Nadin Amizah - Amin Paling Serius (Official Audio) [ZRMDxjRdJV8].mp3">🎵 Amin Paling Serius</div>
+        </div>
+        <button id="music-menu-playpause" class="music-menu-btn">⏯ Play / Pause</button>
+    </div>
+
     <!-- ==============================
          PAGE 1: ENVELOPE
     =============================== -->
@@ -76,7 +92,12 @@
                     <div class="pop-item pop-flower flower-2">🌺</div>
                     <div class="pop-item pop-photo photo-left ripped-heart">
                         <div class="photo-inner">
-                            <img src="script/pandu6.jpeg" alt="Pandu 6" />
+                            <img src="script/pandu21.jpeg" alt="Pandu 21" id="hero-img-1" />
+                        </div>
+                    </div>
+                    <div class="pop-item pop-photo photo-left-2 ripped-heart">
+                        <div class="photo-inner">
+                            <img src="script/pandu23.jpeg" alt="Pandu 23" id="hero-img-2" />
                         </div>
                     </div>
                     <div class="pop-item pop-butterfly butterfly-1">
@@ -90,17 +111,17 @@
                     <!-- 3 Polaroids Right -->
                     <div class="pop-item pop-photo polaroid pol-1">
                         <div class="photo-inner">
-                            <img src="script/pandu10.jpeg" alt="Pandu 10" />
+                            <img src="script/pandu24.jpeg" alt="Pandu 24" id="hero-img-3" />
                         </div>
                     </div>
                     <div class="pop-item pop-photo polaroid pol-2">
                         <div class="photo-inner">
-                            <img src="script/pandu8.jpeg" alt="Pandu 8" />
+                            <img src="script/pandu25.jpeg" alt="Pandu 25" id="hero-img-4" />
                         </div>
                     </div>
                     <div class="pop-item pop-photo polaroid pol-3">
                         <div class="photo-inner">
-                            <img src="script/pandu4.jpeg" alt="Pandu 4" />
+                            <img src="script/pandu26.jpeg" alt="Pandu 26" id="hero-img-5" />
                         </div>
                     </div>
                 </div>
@@ -186,19 +207,21 @@
                     <span class="card-arrow">→</span>
                 </div>
 
-                <!-- Playlist Lagu Card -->
+                <!-- Makanan & Minuman Favorit Card -->
                 <div class="memory-card" data-page="page-7">
                     <div class="card-glow"></div>
                     <div class="card-icon">
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round">
-                            <path d="M12 2v20M2 12h20" />
-                            <rect x="3" y="3" width="18" height="18" rx="2" />
-                            <polygon points="10,8 16,12 10,16" />
+                            <path d="M18 8h1a4 4 0 010 8h-1" />
+                            <path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z" />
+                            <line x1="6" y1="1" x2="6" y2="4" />
+                            <line x1="10" y1="1" x2="10" y2="4" />
+                            <line x1="14" y1="1" x2="14" y2="4" />
                         </svg>
                     </div>
-                    <h3 class="card-title">Playlist Lagu</h3>
-                    <p class="card-desc">Dengarkan lagu favorit kita</p>
+                    <h3 class="card-title">Makanan & Minuman</h3>
+                    <p class="card-desc">Favorit kita berdua 🍜☕</p>
                     <span class="card-arrow">→</span>
                 </div>
             </div>
@@ -229,54 +252,39 @@
 
                 <div class="scrap-item scrap-pol pol-sunset">
                     <div class="pol-photo img-orange"></div>
-                    <div class="pol-text">SUNSET W/ U</div>
-                    <div class="scrap-star yellow-star star-sunset"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
+                    </div>
                 </div>
 
                 <div class="scrap-item scrap-pol pol-sweet">
                     <div class="pol-photo img-orange"></div>
-                    <div class="pol-text">SWEET W/...</div>
-                    <div class="scrap-wax-seal">
-                        <div class="wax-text">DEAD POETS SOCIETY</div>
-                        <div class="wax-inner"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
                     </div>
                 </div>
 
                 <div class="scrap-item scrap-pol pol-soho">
                     <div class="pol-photo img-orange-girl"></div>
-                    <div class="pol-text">SOHO, 30-04-2010</div>
-                    <div class="scrap-orange-slice slice-soho"></div>
-                </div>
-
-                <!-- Film Strip -->
-                <div class="scrap-item scrap-film">
-                    <div class="film-holes left">
-                        <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                    <div class="film-photo img-red-girl-close"></div>
-                    <div class="film-holes right">
-                        <span></span><span></span><span></span><span></span><span></span>
-                    </div>
-                    <div class="scrap-star red-star star-film1"></div>
-                    <div class="scrap-star red-star star-film2"></div>
-                    <div class="scrap-coca-cola coca-film">
+                    <div class="scrap-coca-cola coca-pol-main">
                         <div class="coca-cola-text">Coca-Cola</div>
                     </div>
                 </div>
 
-                <!-- Oval Frame -->
-                <div class="scrap-item scrap-oval-frame">
-                    <div class="oval-border">
-                        <div class="oval-photo img-portrait"></div>
+                <!-- Film Strip -> Polaroid -->
+                <div class="scrap-item scrap-pol pos-film">
+                    <div class="pol-photo img-red-girl-close"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
                     </div>
-                    <div class="scrap-ribbon">
-                        <div class="bow-left"></div>
-                        <div class="bow-right"></div>
-                        <div class="bow-center"></div>
-                        <div class="tail-left"></div>
-                        <div class="tail-right"></div>
+                </div>
+
+                <!-- Oval Frame -> Polaroid -->
+                <div class="scrap-item scrap-pol pos-oval">
+                    <div class="pol-photo img-portrait"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
                     </div>
-                    <div class="scrap-star yellow-star star-oval"></div>
                 </div>
 
                 <!-- Cassette -->
@@ -354,17 +362,19 @@
 
                 <!-- Elements around bottom -->
                 <div class="scrap-item scrap-rose">🌹</div>
-                <div class="scrap-item scrap-red-girl-cut">
-                    <div class="cut-photo img-red-girl-peeking"></div>
+                <div class="scrap-item scrap-pol pos-cut">
+                    <div class="pol-photo img-red-girl-peeking"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
+                    </div>
                 </div>
 
-                <!-- Orange CD / Card -->
-                <div class="scrap-item scrap-orange-card">
-                    <div class="card-bg">
-                        <div class="card-image img-orange-guy"></div>
-                        <div class="card-grooves"></div>
+                <!-- Orange CD / Card -> Polaroid -->
+                <div class="scrap-item scrap-pol pos-card">
+                    <div class="pol-photo img-orange-guy"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
                     </div>
-                    <div class="scrap-flower flower-card">🌸</div>
                 </div>
 
                 <!-- Trust Sticker -->
@@ -385,27 +395,19 @@
                 <!-- Green TAP TO... Sticker -->
                 <div class="scrap-item scrap-tap-sticker">TAP TO OPEN</div>
 
-                <!-- Main Girl Photo Background -->
-                <div class="scrap-item scrap-main-girl">
-                    <div class="girl-photo img-main-girl"></div>
+                <!-- Main Girl Photo -> Polaroid -->
+                <div class="scrap-item scrap-pol pos-main-girl">
+                    <div class="pol-photo img-main-girl"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
+                    </div>
                 </div>
 
-                <!-- Second Girl Photo -->
-                <div class="scrap-item scrap-second-girl">
-                    <div class="girl-photo img-second-girl"></div>
-                </div>
-
-                <!-- Receipt -->
-                <div class="scrap-item scrap-receipt-box">
-                    <div class="receipt-header">950868</div>
-                    <div class="receipt-title">Thank You!</div>
-                    <div class="receipt-line"></div>
-                    <div class="receipt-no">950868</div>
-                    <div class="receipt-text">
-                        JUST ONE<br />
-                        HAZELNUT<br />
-                        ICED COFFEE<br />
-                        PLEASE
+                <!-- Second Girl Photo -> Polaroid -->
+                <div class="scrap-item scrap-pol pos-second-girl">
+                    <div class="pol-photo img-second-girl"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
                     </div>
                 </div>
 
@@ -414,12 +416,12 @@
                     <span>Tree<br />Ripened<br /><small>brand</small></span>
                 </div>
 
-                <!-- Photobooth Strip -->
-                <div class="scrap-item scrap-photobooth">
-                    <div class="pb-photo img-pb-1"></div>
-                    <div class="pb-photo img-pb-2"></div>
-                    <div class="pb-photo img-pb-3"></div>
-                    <div class="pb-photo img-pb-4"></div>
+                <!-- Photobooth Strip -> Polaroid -->
+                <div class="scrap-item scrap-pol pos-pb">
+                    <div class="pol-photo img-pb-1"></div>
+                    <div class="scrap-coca-cola coca-pol-main">
+                        <div class="coca-cola-text">Coca-Cola</div>
+                    </div>
                 </div>
 
                 <!-- Peach Sticker -->
@@ -531,11 +533,14 @@
                             <div class="letter-slot" id="letter-page5">
                                 <h2 class="letter-title-slot">Untukmu</h2>
                                 <div class="letter-line-slot"></div>
-                                <p class="letter-content-slot">
-                                    Setiap detik yang kita lewati,<br>
-                                    menjadi kisah yang paling indah dalam hidupku.<br>
-                                    Bahkan saat lagu-lagu itu terhenti,<br>
-                                    aku akan selalu ada untukmu... 💕
+                                <p class="letter-content-slot" style="font-size: 0.9rem; text-align: left; padding: 0 10px;">
+                                    Happybirthday Sayang🤍🎂🎁<br><br>
+                                    Hari ini bukan cuma tentang kamu bertambah usia, tapi tentang betapa berartinya kamu buat aku. <br><br>
+                                    Aku bersyukur banget bisa kenal ama kamu, bisa hadir di bagian cerita hidup kamu, dan jadi salah satu orang yg rayain ulang tahun kamu hari ini. <br><br>
+                                    Di umur kamu yang sekarang, semoga semua hal baik selalu datang ke kamu. Semoga kamu selalu sehat, bahagia, dan dikelilingi orang-orang yang tulus, dan semua impian kamu bisa tercapai satu per satu.<br><br>
+                                    Semoga hubungan kita juga terus tumbuh jadi lebih baik dan lebih saling ngerti ke depannya, aamiin.<br><br>
+                                    Sekali lagi, selamat ulang tahun, cintacuuu sayangacuu semoga hari ini dan seterusnnya kamu penuh senyuman, tawa, dan semua hal yang kamu suka. I love you, today, tomorrow, and always🤍<br><br>
+                                    Di hari-hari sebelumnya sekarang dan selanjutnya ku doakan Semoga Tuhan selalu menjagamu, selalu menuntunmu, semoga hidupmu bahagia selaluuu i love u
                                 </p>
                             </div>
                             
@@ -572,14 +577,12 @@
                         </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </section>
 
     <!-- ==============================
-         PAGE 7: PLAYLIST LAGU
+         PAGE 7: MAKANAN & MINUMAN FAVORIT
     =============================== -->
     <section class="page" id="page-7">
         <div class="page-content playlist-page-layout">
@@ -588,141 +591,271 @@
             <!-- Decorative Border -->
             <div class="pl-border-decor">
                 <div class="pl-corner pl-corner-tl">
-                    <span class="pl-tulip">🌷</span>
-                    <span class="pl-note">♪</span>
+                    <span class="pl-tulip">🍜</span>
+                    <span class="pl-note">♡</span>
                 </div>
                 <div class="pl-corner pl-corner-tr">
-                    <span class="pl-tulip">🌷</span>
-                    <span class="pl-note">♪</span>
+                    <span class="pl-tulip">☕</span>
+                    <span class="pl-note">♡</span>
                 </div>
                 <div class="pl-border-top">
-                    <span class="pl-tulip">🌷</span>
-                    <span class="pl-note">♫</span>
+                    <span class="pl-tulip">🍜</span>
+                    <span class="pl-note">✨</span>
                     <span class="pl-flower-deco">🌸</span>
-                    <span class="pl-note">♪</span>
-                    <span class="pl-tulip">🌷</span>
+                    <span class="pl-note">✨</span>
+                    <span class="pl-tulip">☕</span>
                 </div>
             </div>
 
             <!-- Notice Card -->
             <div class="pl-notice-card">
-                <div class="pl-notice-badge">📌 NOTICE</div>
-                <p class="pl-notice-text">I made just for you! I hope you love these songs as much as I love you.</p>
-                <div class="pl-readme-btn">Read me ♡</div>
+                <div class="pl-notice-badge">🍽️ FAVORITES</div>
+                <p class="pl-notice-text">Makanan & minuman favorit kita! Yang bikin kenyang dan bahagia 😋🤍</p>
+                <div class="pl-readme-btn">yummy ♡</div>
             </div>
 
-            <!-- Song Cards Container -->
-            <div class="pl-songs-container">
+            <!-- ===== MAKANAN SECTION ===== -->
+            <div class="fav-section">
+                <h3 class="fav-section-title">🍜 Makanan Favorit</h3>
+                <div class="fav-grid">
 
-                <!-- Song 1 -->
-                <div class="pl-song-row">
-                    <div class="pl-song-card"
-                        data-src="script/Aku Milikmu - Dewa 19 (Lyrics Video).mp3"
-                        data-title="Aku Milikmu" data-artist="Dewa 19">
-                        <div class="pl-song-art" style="background: linear-gradient(135deg, #8B4513, #A0522D);"></div>
-                        <div class="pl-song-details">
-                            <div class="pl-song-name">Aku Milikmu</div>
-                            <div class="pl-song-artist">Dewa 19</div>
-                            <div class="pl-song-progress-row">
-                                <div class="pl-mini-progress">
-                                    <div class="pl-mini-progress-fill"></div>
-                                </div>
-                                <span class="pl-song-duration">00:00</span>
-                            </div>
+                    <!-- Mie Koclok -->
+                    <div class="fav-card">
+                        <div class="fav-card-img">
+                            <img src="script/mie_koclok.png" alt="Mie Koclok" />
                         </div>
-                        <button class="pl-play-btn">▶</button>
-                    </div>
-                </div>
-
-                <!-- Song 2 -->
-                <div class="pl-song-row">
-                    <div class="pl-song-card"
-                        data-src="script/Chrisye - Untukku (Official Music Video) [n6TmzCGSKgY].mp3"
-                        data-title="Untukku" data-artist="Chrisye">
-                        <div class="pl-song-art" style="background: linear-gradient(135deg, #d4a0a0, #e8c4b8);"></div>
-                        <div class="pl-song-details">
-                            <div class="pl-song-name">Untukku</div>
-                            <div class="pl-song-artist">Chrisye</div>
-                            <div class="pl-song-progress-row">
-                                <div class="pl-mini-progress">
-                                    <div class="pl-mini-progress-fill"></div>
-                                </div>
-                                <span class="pl-song-duration">00:00</span>
-                            </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Mie Koclok</span>
+                            <span class="fav-card-emoji">🍜</span>
                         </div>
-                        <button class="pl-play-btn">▶</button>
                     </div>
-                </div>
 
-                <!-- Song 3 -->
-                <div class="pl-song-row">
-                    <div class="pl-song-card"
-                        data-src="script/Nadhif Basalamah - kota ini tak sama tanpamu (Official Lyric Video).mp3"
-                        data-title="kota ini tak sama tanpamu" data-artist="Nadhif Basalamah">
-                        <div class="pl-song-art" style="background: linear-gradient(135deg, #5c3a2e, #8B6F47);"></div>
-                        <div class="pl-song-details">
-                            <div class="pl-song-name">kota ini tak sama tanpamu</div>
-                            <div class="pl-song-artist">Nadhif Basalamah</div>
-                            <div class="pl-song-progress-row">
-                                <div class="pl-mini-progress">
-                                    <div class="pl-mini-progress-fill"></div>
-                                </div>
-                                <span class="pl-song-duration">00:00</span>
-                            </div>
+                    <!-- Bubur -->
+                    <div class="fav-card">
+                        <div class="fav-card-img">
+                            <img src="script/bubur.png" alt="Bubur" />
                         </div>
-                        <button class="pl-play-btn">▶</button>
-                    </div>
-                </div>
-
-                <!-- Song 4 -->
-                <div class="pl-song-row">
-                    <div class="pl-song-card"
-                        data-src="script/Perunggu - Ini Abadi (Video Lirik).mp3"
-                        data-title="Ini Abadi" data-artist="Perunggu">
-                        <div class="pl-song-art" style="background: linear-gradient(135deg, #4a3728, #6b4f3a);"></div>
-                        <div class="pl-song-details">
-                            <div class="pl-song-name">Ini Abadi</div>
-                            <div class="pl-song-artist">Perunggu</div>
-                            <div class="pl-song-progress-row">
-                                <div class="pl-mini-progress">
-                                    <div class="pl-mini-progress-fill"></div>
-                                </div>
-                                <span class="pl-song-duration">00:00</span>
-                            </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Bubur</span>
+                            <span class="fav-card-emoji">🥣</span>
                         </div>
-                        <button class="pl-play-btn">▶</button>
                     </div>
-                </div>
 
-                <!-- Song 5 -->
-                <div class="pl-song-row">
-                    <div class="pl-song-card"
-                        data-src="script/Sal Priadi & Nadin Amizah - Amin Paling Serius (Official Audio) [ZRMDxjRdJV8].mp3"
-                        data-title="Amin Paling Serius" data-artist="Sal Priadi & Nadin Amizah">
-                        <div class="pl-song-art" style="background: linear-gradient(135deg, #7a4e3a, #a67c5b);"></div>
-                        <div class="pl-song-details">
-                            <div class="pl-song-name">Amin Paling Serius</div>
-                            <div class="pl-song-artist">Sal Priadi &amp; Nadin Amizah</div>
-                            <div class="pl-song-progress-row">
-                                <div class="pl-mini-progress">
-                                    <div class="pl-mini-progress-fill"></div>
-                                </div>
-                                <span class="pl-song-duration">00:00</span>
-                            </div>
+                    <!-- Baso -->
+                    <div class="fav-card">
+                        <div class="fav-card-img">
+                            <img src="script/baso.png" alt="Baso" />
                         </div>
-                        <button class="pl-play-btn">▶</button>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Baso</span>
+                            <span class="fav-card-emoji">🥩</span>
+                        </div>
                     </div>
-                </div>
 
+                    <!-- Mie Ayam -->
+                    <div class="fav-card">
+                        <div class="fav-card-img">
+                            <img src="script/mie_ayam.png" alt="Mie Ayam" />
+                        </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Mie Ayam</span>
+                            <span class="fav-card-emoji">🍝</span>
+                        </div>
+                    </div>
+
+                    <!-- Dimsum Kuah -->
+                    <div class="fav-card">
+                        <div class="fav-card-img">
+                            <img src="script/dimsum_kuah.png" alt="Dimsum Kuah" />
+                        </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Dimsum Kuah</span>
+                            <span class="fav-card-emoji">🥟</span>
+                        </div>
+                    </div>
+
+                    <!-- Tahu Baso -->
+                    <div class="fav-card">
+                        <div class="fav-card-img">
+                            <img src="script/tahu_baso.png" alt="Tahu Baso" />
+                        </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Tahu Baso</span>
+                            <span class="fav-card-emoji">🫕</span>
+                        </div>
+                    </div>
+
+                    <!-- Mie Instan -->
+                    <div class="fav-card">
+                        <div class="fav-card-img fav-card-emoji-bg" style="background: linear-gradient(135deg, #ff6b35, #f7931e);">
+                            <span class="fav-card-big-emoji">🍜😡</span>
+                        </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Mie Instan 😡</span>
+                            <span class="fav-card-emoji">🔥</span>
+                        </div>
+                    </div>
+
+                </div>
+                <p class="fav-more-text">...dan masih banyak lagi! 🤤</p>
+            </div>
+
+            <!-- ===== MINUMAN SECTION ===== -->
+            <div class="fav-section">
+                <h3 class="fav-section-title">☕ Minuman Favorit</h3>
+                <div class="fav-grid">
+
+                    <!-- Thai Tea -->
+                    <div class="fav-card">
+                        <div class="fav-card-img fav-card-emoji-bg" style="background: linear-gradient(135deg, #e07b39, #c0392b, #d35400);">
+                            <span class="fav-card-big-emoji">🧋✨</span>
+                        </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Thai Tea Idaman</span>
+                            <span class="fav-card-emoji">🧡</span>
+                        </div>
+                    </div>
+
+                    <!-- Matcha -->
+                    <div class="fav-card">
+                        <div class="fav-card-img fav-card-emoji-bg" style="background: linear-gradient(135deg, #4a7c59, #6b9b37, #2d5016);">
+                            <span class="fav-card-big-emoji">🍵💚</span>
+                        </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Matcha</span>
+                            <span class="fav-card-emoji">💚</span>
+                        </div>
+                    </div>
+
+                    <!-- Air Putih -->
+                    <div class="fav-card">
+                        <div class="fav-card-img fav-card-emoji-bg" style="background: linear-gradient(135deg, #74b9ff, #a8e6cf, #dfe6e9);">
+                            <span class="fav-card-big-emoji">💧🤍</span>
+                        </div>
+                        <div class="fav-card-info">
+                            <span class="fav-card-name">Air Putih 🤍</span>
+                            <span class="fav-card-emoji">💧</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- ===== LAGU SECTION (tetap ada!) ===== -->
+            <div class="fav-section fav-songs-section">
+                <h3 class="fav-section-title" id="fav-songs-toggle" style="cursor: pointer;">🎵 Playlist Lagu Kita <span class="fav-toggle-arrow">▼</span></h3>
+                <div class="pl-songs-container" id="fav-songs-list">
+
+                    <!-- Song 1 -->
+                    <div class="pl-song-row">
+                        <div class="pl-song-card"
+                            data-src="script/Aku Milikmu - Dewa 19 (Lyrics Video).mp3"
+                            data-title="Aku Milikmu" data-artist="Dewa 19">
+                            <div class="pl-song-art" style="background: linear-gradient(135deg, #8B4513, #A0522D);"></div>
+                            <div class="pl-song-details">
+                                <div class="pl-song-name">Aku Milikmu</div>
+                                <div class="pl-song-artist">Dewa 19</div>
+                                <div class="pl-song-progress-row">
+                                    <div class="pl-mini-progress">
+                                        <div class="pl-mini-progress-fill"></div>
+                                    </div>
+                                    <span class="pl-song-duration">00:00</span>
+                                </div>
+                            </div>
+                            <button class="pl-play-btn">▶</button>
+                        </div>
+                    </div>
+
+                    <!-- Song 2 -->
+                    <div class="pl-song-row">
+                        <div class="pl-song-card"
+                            data-src="script/Chrisye - Untukku (Official Music Video) [n6TmzCGSKgY].mp3"
+                            data-title="Untukku" data-artist="Chrisye">
+                            <div class="pl-song-art" style="background: linear-gradient(135deg, #d4a0a0, #e8c4b8);"></div>
+                            <div class="pl-song-details">
+                                <div class="pl-song-name">Untukku</div>
+                                <div class="pl-song-artist">Chrisye</div>
+                                <div class="pl-song-progress-row">
+                                    <div class="pl-mini-progress">
+                                        <div class="pl-mini-progress-fill"></div>
+                                    </div>
+                                    <span class="pl-song-duration">00:00</span>
+                                </div>
+                            </div>
+                            <button class="pl-play-btn">▶</button>
+                        </div>
+                    </div>
+
+                    <!-- Song 3 -->
+                    <div class="pl-song-row">
+                        <div class="pl-song-card"
+                            data-src="script/Nadhif Basalamah - kota ini tak sama tanpamu (Official Lyric Video).mp3"
+                            data-title="kota ini tak sama tanpamu" data-artist="Nadhif Basalamah">
+                            <div class="pl-song-art" style="background: linear-gradient(135deg, #5c3a2e, #8B6F47);"></div>
+                            <div class="pl-song-details">
+                                <div class="pl-song-name">kota ini tak sama tanpamu</div>
+                                <div class="pl-song-artist">Nadhif Basalamah</div>
+                                <div class="pl-song-progress-row">
+                                    <div class="pl-mini-progress">
+                                        <div class="pl-mini-progress-fill"></div>
+                                    </div>
+                                    <span class="pl-song-duration">00:00</span>
+                                </div>
+                            </div>
+                            <button class="pl-play-btn">▶</button>
+                        </div>
+                    </div>
+
+                    <!-- Song 4 -->
+                    <div class="pl-song-row">
+                        <div class="pl-song-card"
+                            data-src="script/Perunggu - Ini Abadi (Video Lirik).mp3"
+                            data-title="Ini Abadi" data-artist="Perunggu">
+                            <div class="pl-song-art" style="background: linear-gradient(135deg, #4a3728, #6b4f3a);"></div>
+                            <div class="pl-song-details">
+                                <div class="pl-song-name">Ini Abadi</div>
+                                <div class="pl-song-artist">Perunggu</div>
+                                <div class="pl-song-progress-row">
+                                    <div class="pl-mini-progress">
+                                        <div class="pl-mini-progress-fill"></div>
+                                    </div>
+                                    <span class="pl-song-duration">00:00</span>
+                                </div>
+                            </div>
+                            <button class="pl-play-btn">▶</button>
+                        </div>
+                    </div>
+
+                    <!-- Song 5 -->
+                    <div class="pl-song-row">
+                        <div class="pl-song-card"
+                            data-src="script/Sal Priadi &amp; Nadin Amizah - Amin Paling Serius (Official Audio) [ZRMDxjRdJV8].mp3"
+                            data-title="Amin Paling Serius" data-artist="Sal Priadi &amp; Nadin Amizah">
+                            <div class="pl-song-art" style="background: linear-gradient(135deg, #7a4e3a, #a67c5b);"></div>
+                            <div class="pl-song-details">
+                                <div class="pl-song-name">Amin Paling Serius</div>
+                                <div class="pl-song-artist">Sal Priadi &amp; Nadin Amizah</div>
+                                <div class="pl-song-progress-row">
+                                    <div class="pl-mini-progress">
+                                        <div class="pl-mini-progress-fill"></div>
+                                    </div>
+                                    <span class="pl-song-duration">00:00</span>
+                                </div>
+                            </div>
+                            <button class="pl-play-btn">▶</button>
+                        </div>
+                    </div>
+
+                </div>
             </div>
 
             <!-- Bottom Decorations -->
             <div class="pl-border-bottom">
-                <span class="pl-tulip">🌷</span>
-                <span class="pl-note">♪</span>
+                <span class="pl-tulip">🍜</span>
+                <span class="pl-note">♡</span>
                 <span class="pl-flower-deco">🌸</span>
-                <span class="pl-note">♫</span>
-                <span class="pl-tulip">🌷</span>
+                <span class="pl-note">♡</span>
+                <span class="pl-tulip">☕</span>
             </div>
 
             <audio id="playlist-audio"></audio>

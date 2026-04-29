@@ -148,25 +148,77 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    function updateMusicUI() {
+        if (iconOn) iconOn.style.display = musicPlaying ? 'block' : 'none';
+        if (iconOff) iconOff.style.display = musicPlaying ? 'none' : 'block';
+        highlightActiveOption();
+    }
+
+    const musicMenu = document.getElementById('music-menu');
+    const musicMenuClose = document.getElementById('music-menu-close');
+    const musicOptions = document.querySelectorAll('.music-option');
+    const musicMenuPlayPause = document.getElementById('music-menu-playpause');
+
     if (musicToggle) {
         musicToggle.addEventListener('click', () => {
+            if (musicMenu) musicMenu.classList.toggle('hidden');
+            highlightActiveOption();
+        });
+    }
+
+    if (musicMenuClose) {
+        musicMenuClose.addEventListener('click', () => {
+            musicMenu.classList.add('hidden');
+        });
+    }
+
+    function highlightActiveOption() {
+        if (!bgMusic) return;
+        const currentSrc = decodeURI(bgMusic.src || "");
+        musicOptions.forEach(opt => {
+            const optSrc = opt.getAttribute('data-src');
+            if (currentSrc.includes(optSrc)) {
+                opt.classList.add('active');
+            } else {
+                opt.classList.remove('active');
+            }
+        });
+    }
+
+    musicOptions.forEach(opt => {
+        opt.addEventListener('click', () => {
+            const src = opt.getAttribute('data-src');
+            if (src) {
+                bgMusic.src = src;
+                bgMusic.play().then(() => {
+                    musicPlaying = true;
+                    songPicked = true;
+                    updateMusicUI();
+                }).catch(() => {});
+            }
+        });
+    });
+
+    if (musicMenuPlayPause) {
+        musicMenuPlayPause.addEventListener('click', () => {
             if (!bgMusic) return;
             if (musicPlaying) {
                 bgMusic.pause();
                 musicPlaying = false;
             } else {
-                bgMusic.play().then(() => {
-                    musicPlaying = true;
-                }).catch(() => { });
+                if (!songPicked && (!bgMusic.src || bgMusic.src.includes('bensound-romantic.mp3'))) {
+                    tryPlayMusic();
+                } else {
+                    bgMusic.play().then(() => {
+                        musicPlaying = true;
+                    }).catch(() => {});
+                }
             }
             updateMusicUI();
         });
     }
 
-    function updateMusicUI() {
-        if (iconOn) iconOn.style.display = musicPlaying ? 'block' : 'none';
-        if (iconOff) iconOff.style.display = musicPlaying ? 'none' : 'block';
-    }
+
 
     /* ─── FLOATING PETALS ─── */
     const petalsContainer = document.getElementById('petals-container');
@@ -284,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Image and Emojis mapping
     const PANDU_IMAGES = [];
-    for (let i = 1; i <= 5; i++) {
+    for (let i = 1; i <= 22; i++) {
         const img = new Image();
         img.src = `script/pandu${i}.jpeg`;
         PANDU_IMAGES.push(img);
@@ -580,6 +632,35 @@ document.addEventListener('DOMContentLoaded', () => {
         setTimeout(updateScrapbookScale, 200);
     });
 
+    /* ─── RANDOMIZE PHOTOS ─── */
+    function randomizePhotos() {
+        const totalPhotos = 22;
+        // Ganti nama file ini dengan foto ceweknya sendiri jika bukan pandu22.jpeg
+        const heroPhotoSrc = 'script/pandu22.jpeg'; 
+        
+        // 1. (Dihapus) Foto halaman pertama sudah menggunakan foto-foto spesifik yang dipasang langsung di index.html
+
+        // 2. Acak semua foto lainnya
+        const randomPhotoSelectors = [
+            '.pol-photo', '.film-photo', '.oval-photo', '.cut-photo', 
+            '.girl-photo', '.pb-photo', '.card-image', '.moment-photo'
+        ];
+        
+        const elementsToRandomize = document.querySelectorAll(randomPhotoSelectors.join(', '));
+        
+        elementsToRandomize.forEach(el => {
+            const randomNum = Math.floor(Math.random() * totalPhotos) + 1;
+            const randomSrc = `script/pandu${randomNum}.jpeg`;
+            
+            // Override CSS background-image
+            el.style.backgroundImage = `url('${randomSrc}')`;
+            el.style.backgroundPosition = 'center';
+            el.style.backgroundSize = 'cover';
+            el.style.backgroundRepeat = 'no-repeat';
+        });
+    }
+    randomizePhotos();
+
 }); // end DOMContentLoaded
 
 
@@ -612,9 +693,48 @@ document.addEventListener('DOMContentLoaded', () => {
                     setTimeout(() => {
                         letter.classList.add('slide-out');
                         createDust();
+                        playVoiceSequence();
                     }, 700);
 
                 }, 4000);
+
+                let currentVoiceAudio = null;
+                function playVoiceSequence() {
+                    const bgMusic = document.getElementById('bg-music');
+                    const originalVolume = bgMusic ? bgMusic.volume : 0.25;
+                    if (bgMusic) bgMusic.volume = 0.05; // Kecilkan musik latar
+                    
+                    const voices = [
+                        'script/pandu suara 1.ogg',
+                        'script/pandu suara 2.ogg',
+                        'script/pandu suara 3.ogg',
+                        'script/pandu suara 4.ogg',
+                        'script/pandu suara 5.ogg'
+                    ];
+                    let currentIndex = 0;
+                    
+                    function playNext() {
+                        if (currentIndex >= voices.length) {
+                            if (bgMusic) bgMusic.volume = originalVolume; // Kembalikan volume musik
+                            return;
+                        }
+                        currentVoiceAudio = new Audio(voices[currentIndex]);
+                        currentVoiceAudio.play().catch(e => {
+                            console.log("Gagal memutar audio: ", e);
+                            currentIndex++;
+                            playNext();
+                        });
+                        currentVoiceAudio.onended = () => {
+                            currentIndex++;
+                            playNext();
+                        };
+                    }
+                    
+                    if (currentVoiceAudio) {
+                        currentVoiceAudio.pause();
+                    }
+                    playNext();
+                }
 
                 function createDust() {
                     for(let i=0; i<30; i++) {

@@ -98,6 +98,93 @@ body {
     height: 1.1rem;
 }
 
+.music-menu {
+    position: absolute;
+    bottom: 5rem;
+    right: 1.5rem;
+    width: 280px;
+    background: rgba(43, 0, 5, 0.9);
+    border: 1px solid rgba(196, 30, 58, 0.5);
+    border-radius: 12px;
+    padding: 1rem;
+    z-index: 1000;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s, transform 0.3s;
+    transform-origin: bottom right;
+}
+
+.music-menu.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+.music-menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(196, 30, 58, 0.3);
+    padding-bottom: 0.5rem;
+}
+
+.music-menu-header h4 {
+    font-family: var(--font-serif);
+    color: var(--petal);
+    font-size: 1.1rem;
+}
+
+#music-menu-close {
+    background: none;
+    border: none;
+    color: var(--petal);
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.music-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.music-option {
+    font-size: 0.9rem;
+    color: var(--cream);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.music-option:hover, .music-option.active {
+    background: rgba(196, 30, 58, 0.3);
+}
+
+.music-menu-btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--red), var(--crimson));
+    color: var(--cream);
+    border: none;
+    padding: 0.8rem;
+    border-radius: 20px;
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.music-menu-btn:hover {
+    transform: scale(1.02);
+}
+
 /* ===========================
    PAGES
 =========================== */
@@ -601,11 +688,11 @@ body {
 
 /* Left Photo - Ripped Heart Concept */
 .ripped-heart {
-    width: 130px;
-    height: 150px;
+    width: 140px;
+    height: 140px;
     padding: 0;
     background: white;
-    clip-path: polygon(10% 0, 90% 5%, 100% 40%, 85% 80%, 45% 100%, 15% 75%, 0 35%);
+    clip-path: polygon(50% 15%, 58% 6%, 70% 1%, 82% 1%, 92% 7%, 98% 17%, 100% 28%, 98% 40%, 91% 52%, 80% 66%, 66% 81%, 50% 98%, 34% 81%, 20% 66%, 9% 52%, 2% 40%, 0% 28%, 2% 17%, 8% 7%, 18% 1%, 30% 1%, 42% 6%);
     box-shadow: none;
     filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
 }
@@ -614,7 +701,7 @@ body {
     position: absolute;
     inset: 5px;
     background: #eee;
-    clip-path: polygon(12% 2%, 88% 7%, 98% 40%, 83% 78%, 45% 97%, 17% 73%, 2% 35%);
+    clip-path: polygon(50% 15%, 58% 6%, 70% 1%, 82% 1%, 92% 7%, 98% 17%, 100% 28%, 98% 40%, 91% 52%, 80% 66%, 66% 81%, 50% 98%, 34% 81%, 20% 66%, 9% 52%, 2% 40%, 0% 28%, 2% 17%, 8% 7%, 18% 1%, 30% 1%, 42% 6%);
     overflow: hidden;
 }
 
@@ -637,10 +724,23 @@ body {
     bottom: 20%;
     left: 30%;
     transition-delay: 0.15s;
+    z-index: 5;
 }
 
 .envelope-wrapper.opening .photo-left {
     transform: scale(1.1) translate(-100px, 10px) rotate(-10deg);
+    opacity: 1;
+}
+
+.photo-left-2 {
+    bottom: 25%;
+    left: 30%;
+    transition-delay: 0.25s;
+    z-index: 4;
+}
+
+.envelope-wrapper.opening .photo-left-2 {
+    transform: scale(1.1) translate(-120px, -90px) rotate(-5deg);
     opacity: 1;
 }
 
@@ -1074,11 +1174,11 @@ body {
 
 /* Polaroid Placements */
 .pol-main {
-    top: 15%;
-    left: 10%;
-    transform: rotate(-10deg);
+    top: 12%;
+    left: 8%;
+    transform: rotate(-5deg);
     padding-bottom: 50px;
-    z-index: 4;
+    z-index: 5;
 }
 
 .pol-main .pol-photo {
@@ -1087,24 +1187,68 @@ body {
 }
 
 .pol-sunset {
-    top: 12%;
-    left: 38%;
-    transform: rotate(4deg);
-    z-index: 3;
+    top: 8%;
+    left: 28%;
+    transform: rotate(3deg);
+    z-index: 6;
 }
 
 .pol-sweet {
-    top: 15%;
-    left: 55%;
-    transform: rotate(12deg);
+    top: 14%;
+    left: 48%;
+    transform: rotate(-8deg);
     z-index: 5;
 }
 
 .pol-soho {
-    top: 12%;
-    right: 5%;
+    top: 10%;
+    left: 68%;
+    transform: rotate(6deg);
+    z-index: 7;
+}
+
+/* New Polaroid Positions */
+.pos-film {
+    top: 15%;
+    left: 88%;
+    transform: rotate(-4deg);
+    z-index: 5;
+}
+.pos-oval {
+    top: 45%;
+    left: 15%;
+    transform: rotate(7deg);
+    z-index: 6;
+}
+.pos-cut {
+    top: 40%;
+    left: 38%;
+    transform: rotate(-6deg);
+    z-index: 5;
+}
+.pos-card {
+    top: 48%;
+    left: 62%;
+    transform: rotate(4deg);
+    z-index: 6;
+}
+.pos-main-girl {
+    top: 42%;
+    left: 85%;
+    transform: rotate(-7deg);
+    z-index: 5;
+}
+.pos-second-girl {
+    top: 75%;
+    left: 30%;
+    transform: rotate(-5deg);
+    z-index: 6;
+}
+.pos-pb {
+    top: 70%;
+    left: 70%;
     transform: rotate(8deg);
-    z-index: 4;
+    z-index: 5;
 }
 
 /* Film Strip */
@@ -1544,6 +1688,7 @@ body {
 }
 
 .scrap-coca-cola {
+    position: absolute;
     width: 50px;
     height: 50px;
     background: #c21820;
@@ -3231,12 +3376,14 @@ body {
     text-align: center;
     opacity: 0;
     overflow: hidden;
-    transition: height 1.8s steps(8, end), opacity 0.5s ease;
+    transform: translate(0, 0) rotate(0deg);
+    transition: height 1.8s steps(8, end), opacity 0.5s ease, transform 1.8s steps(8, end);
 }
 
 .letter-slot.slide-out {
-    height: 380px;
+    height: 540px;
     opacity: 1;
+    transform: translate(30px, 40px) rotate(4deg);
 }
 
 .letter-title-slot {
@@ -4031,6 +4178,167 @@ body {
     position: relative;
 }
 
+/* ===========================
+   MAKANAN & MINUMAN FAVORIT
+=========================== */
+.fav-section {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    animation: fadeInUp 0.6s ease both;
+}
+
+.fav-section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: var(--cream);
+    text-align: center;
+    margin-bottom: 14px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.fav-section-title::before,
+.fav-section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(196, 30, 58, 0.5), transparent);
+}
+
+.fav-toggle-arrow {
+    font-size: 0.7rem;
+    color: var(--blush);
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.fav-toggle-arrow.collapsed {
+    transform: rotate(-90deg);
+}
+
+/* Food/Drink Grid */
+.fav-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    padding: 0 5px;
+}
+
+/* Food/Drink Card */
+.fav-card {
+    background: linear-gradient(145deg, rgba(93, 58, 58, 0.8), rgba(62, 34, 34, 0.9));
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255,255,255,0.08);
+    transition: all 0.3s ease;
+    animation: fadeInUp 0.5s ease both;
+    cursor: default;
+}
+
+.fav-card:nth-child(1) { animation-delay: 0.05s; }
+.fav-card:nth-child(2) { animation-delay: 0.1s; }
+.fav-card:nth-child(3) { animation-delay: 0.15s; }
+.fav-card:nth-child(4) { animation-delay: 0.2s; }
+.fav-card:nth-child(5) { animation-delay: 0.25s; }
+.fav-card:nth-child(6) { animation-delay: 0.3s; }
+.fav-card:nth-child(7) { animation-delay: 0.35s; }
+
+.fav-card:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Card Image */
+.fav-card-img {
+    width: 100%;
+    height: 110px;
+    overflow: hidden;
+    position: relative;
+}
+
+.fav-card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.fav-card:hover .fav-card-img img {
+    transform: scale(1.08);
+}
+
+/* Emoji Background Card (for items without images) */
+.fav-card-emoji-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+}
+
+.fav-card-big-emoji {
+    font-size: 2.5rem;
+    filter: drop-shadow(0 3px 6px rgba(0,0,0,0.3));
+    animation: floatEmoji 3s ease-in-out infinite alternate;
+}
+
+@keyframes floatEmoji {
+    0% { transform: translateY(0) scale(1); }
+    100% { transform: translateY(-5px) scale(1.05); }
+}
+
+/* Card Info */
+.fav-card-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+}
+
+.fav-card-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.8rem;
+    color: #fff;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.fav-card-emoji {
+    font-size: 1rem;
+    flex-shrink: 0;
+}
+
+/* More Text */
+.fav-more-text {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 0.85rem;
+    color: var(--petal);
+    margin-top: 10px;
+    font-style: italic;
+    opacity: 0.8;
+    animation: pulse 2s infinite;
+}
+
+/* Songs Section Toggle */
+.fav-songs-section .pl-songs-container {
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    overflow: hidden;
+}
+
+.fav-songs-section .pl-songs-container.collapsed {
+    max-height: 0 !important;
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+}
+
 @media (min-width: 0px) {
     .playlist-page-layout {
         padding: 20px 0;
@@ -4145,7 +4453,7 @@ body {
         font-size: 3rem;
     }
     .ripped-heart {
-        width: 90px;
+        width: 100px;
         height: 100px;
     }
     .polaroid {
@@ -4171,6 +4479,9 @@ body {
     }
     .envelope-wrapper.opening .photo-left {
         transform: scale(0.6) translate(-40px, 5px) rotate(-10deg);
+    }
+    .envelope-wrapper.opening .photo-left-2 {
+        transform: scale(0.6) translate(-50px, -45px) rotate(-5deg);
     }
     .envelope-wrapper.opening .pol-1 {
         transform: scale(0.65) translate(40px, -18px) rotate(15deg);
@@ -4692,10 +5003,11 @@ body {
 
 /* Page 1: Pop photos — smaller, further out, no overlap */
 .pop-photo { width: 160px !important; height: 160px !important; }
-.ripped-heart { width: 210px !important; height: 230px !important; }
+.ripped-heart { width: 220px !important; height: 220px !important; }
 .polaroid { width: 130px !important; height: 150px !important; }
 .btn-primary { z-index: 1000 !important; }
 .envelope-wrapper.opening .photo-left { transform: scale(0.75) translate(-160px, -40px) rotate(-12deg) !important; }
+.envelope-wrapper.opening .photo-left-2 { transform: scale(0.75) translate(-180px, -130px) rotate(-5deg) !important; }
 .envelope-wrapper.opening .pol-1 { transform: scale(0.7) translate(140px, -90px) rotate(15deg) !important; }
 .envelope-wrapper.opening .pol-2 { transform: scale(0.7) translate(160px, 10px) rotate(5deg) !important; }
 .envelope-wrapper.opening .pol-3 { transform: scale(0.7) translate(130px, 100px) rotate(-10deg) !important; }
