@@ -634,7 +634,13 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.style.setProperty('--scrap-rotate', '0deg');
         const scaleByW = (vw * 0.97) / CANVAS_W;
         const scaleByH = (vh * 0.97) / CANVAS_H;
-        const scale = Math.min(scaleByW, scaleByH);
+        let scale = Math.min(scaleByW, scaleByH);
+        
+        // Perbesar (zoom in) khusus di HP agar tidak terlalu jauh
+        if (vw < 768) {
+            scale = scale * 1.6;
+        }
+        
         document.documentElement.style.setProperty('--scrap-scale', scale.toFixed(4));
     }
     updateScrapbookScale();
