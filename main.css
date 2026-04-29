@@ -3251,10 +3251,12 @@ body {
 .page5-scene {
     position: relative;
     width: 100%;
-    height: 60%;
+    height: 100%;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: visible;
 }
 
 /* ===========================
@@ -3296,8 +3298,8 @@ body {
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 30px);
-    height: 450px;
-    overflow: hidden;
+    height: 600px;
+    overflow: visible;
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -3375,15 +3377,17 @@ body {
     justify-content: flex-start;
     text-align: center;
     opacity: 0;
-    overflow: hidden;
+    overflow: visible;
     transform: translate(0, 0) rotate(0deg);
     transition: height 1.8s steps(8, end), opacity 0.5s ease, transform 1.8s steps(8, end);
 }
 
 .letter-slot.slide-out {
-    height: 540px;
+    height: auto;
+    min-height: 540px;
     opacity: 1;
     transform: translate(30px, 40px) rotate(4deg);
+    overflow-y: auto;
 }
 
 .letter-title-slot {
@@ -3405,6 +3409,7 @@ body {
     font-size: 0.72rem;
     color: #555;
     line-height: 1.5;
+    padding-bottom: 15px;
 }
 
 .slot-bottom-lip {

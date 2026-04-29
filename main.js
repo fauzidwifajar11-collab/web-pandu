@@ -52,6 +52,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
             // Trigger animation if entering page-5
             if(pageId === "page-5"){
+                // Auto-play "Ini Abadi" by Perunggu
+                const bgMusicEl = document.getElementById('bg-music');
+                if (bgMusicEl) {
+                    bgMusicEl.src = 'script/Perunggu - Ini Abadi (Video Lirik).mp3';
+                    bgMusicEl.play().then(() => {
+                        musicPlaying = true;
+                        songPicked = true;
+                        updateMusicUI();
+                    }).catch(() => {});
+                }
+
                 setTimeout(() => {
                     if(window.startPage5Animation){
                         window.startPage5Animation();
