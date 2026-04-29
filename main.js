@@ -625,8 +625,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ─── JOURNEY PAGE: DYNAMIC LANDSCAPE SCALE ─── */
     function updateScrapbookScale() {
         // The scrapbook canvas is 1440×900 in landscape
-        const CANVAS_W = 1440;
-        const CANVAS_H = 900;
+        const CANVAS_W = 900;
+        const CANVAS_H = 1440;
         const vw = window.innerWidth;
         const vh = window.innerHeight;
         
@@ -636,10 +636,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const scaleByH = (vh * 0.97) / CANVAS_H;
         let scale = Math.min(scaleByW, scaleByH);
         
-        // Perbesar (zoom in) khusus di HP agar tidak terlalu jauh
-        if (vw < 768) {
-            scale = scale * 2.2;
-        }
+        // Scale dihapus karena canvas sudah diset persegi panjang (portrait) 
+        // sehingga akan pas secara alami di layar HP.
         
         document.documentElement.style.setProperty('--scrap-scale', scale.toFixed(4));
     }
