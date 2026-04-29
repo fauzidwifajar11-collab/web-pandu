@@ -728,7 +728,7 @@ body {
 }
 
 .envelope-wrapper.opening .photo-left {
-    transform: scale(0.6) translate(-30px, 40px) rotate(-5deg);
+    transform: scale(0.6) translate(-80px, 40px) rotate(-5deg);
     opacity: 1;
 }
 
@@ -740,7 +740,7 @@ body {
 }
 
 .envelope-wrapper.opening .photo-left-2 {
-    transform: scale(0.6) translate(-70px, -80px) rotate(-15deg);
+    transform: scale(0.6) translate(-120px, -80px) rotate(-15deg);
     opacity: 1;
 }
 
@@ -752,7 +752,7 @@ body {
 }
 
 .envelope-wrapper.opening .photo-left-3 {
-    transform: scale(0.6) translate(-40px, -200px) rotate(10deg);
+    transform: scale(0.6) translate(-90px, -200px) rotate(10deg);
     opacity: 1;
 }
 
