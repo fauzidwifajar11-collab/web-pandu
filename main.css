@@ -622,7 +622,7 @@ body {
 }
 
 .envelope-wrapper.opening .flower-1 {
-    transform: scale(1.4) translate(-90px, -80px) rotate(-25deg);
+    transform: scale(1.4) translate(-160px, -120px) rotate(-25deg);
     opacity: 1;
 }
 
@@ -634,7 +634,7 @@ body {
 }
 
 .envelope-wrapper.opening .flower-2 {
-    transform: scale(1.3) translate(-110px, -10px) rotate(-40deg);
+    transform: scale(1.3) translate(-180px, 20px) rotate(-40deg);
     opacity: 1;
 }
 
@@ -645,7 +645,7 @@ body {
 }
 
 .envelope-wrapper.opening .flower-3 {
-    transform: scale(1.5) translate(80px, -70px) rotate(15deg);
+    transform: scale(1.5) translate(160px, -120px) rotate(15deg);
     opacity: 1;
 }
 
@@ -657,7 +657,7 @@ body {
 }
 
 .envelope-wrapper.opening .flower-4 {
-    transform: scale(1.2) translate(110px, 10px) rotate(30deg);
+    transform: scale(1.2) translate(180px, 30px) rotate(30deg);
     opacity: 1;
 }
 
@@ -669,7 +669,7 @@ body {
 }
 
 .envelope-wrapper.opening .butterfly-1 {
-    transform: scale(1.3) translate(-70px, 40px) rotate(-15deg);
+    transform: scale(1.3) translate(-10px, 140px) rotate(-15deg);
     opacity: 1;
 }
 
@@ -728,7 +728,7 @@ body {
 }
 
 .envelope-wrapper.opening .photo-left {
-    transform: scale(1.1) translate(-100px, 10px) rotate(-10deg);
+    transform: scale(0.8) translate(-130px, -90px) rotate(-5deg);
     opacity: 1;
 }
 
@@ -736,11 +736,23 @@ body {
     bottom: 25%;
     left: 30%;
     transition-delay: 0.25s;
-    z-index: 4;
+    z-index: 22;
 }
 
 .envelope-wrapper.opening .photo-left-2 {
-    transform: scale(1.1) translate(-120px, -90px) rotate(-5deg);
+    transform: scale(0.8) translate(-180px, -190px) rotate(-15deg);
+    opacity: 1;
+}
+
+.photo-left-3 {
+    bottom: 30%;
+    left: 30%;
+    transition-delay: 0.35s;
+    z-index: 23;
+}
+
+.envelope-wrapper.opening .photo-left-3 {
+    transform: scale(0.8) translate(-60px, -250px) rotate(10deg);
     opacity: 1;
 }
 
@@ -768,7 +780,7 @@ body {
 }
 
 .envelope-wrapper.opening .pol-1 {
-    transform: scale(1.1) translate(90px, -40px) rotate(15deg);
+    transform: scale(0.8) translate(40px, -260px) rotate(-15deg);
     opacity: 1;
 }
 
@@ -780,7 +792,7 @@ body {
 }
 
 .envelope-wrapper.opening .pol-2 {
-    transform: scale(1.2) translate(110px, 20px) rotate(5deg);
+    transform: scale(0.8) translate(160px, -230px) rotate(15deg);
     opacity: 1;
 }
 
@@ -788,11 +800,23 @@ body {
     bottom: 20%;
     right: 30%;
     transition-delay: 0.4s;
-    z-index: 7;
+    z-index: 23;
 }
 
 .envelope-wrapper.opening .pol-3 {
-    transform: scale(1.1) translate(80px, 75px) rotate(-10deg);
+    transform: scale(0.8) translate(80px, -150px) rotate(-5deg);
+    opacity: 1;
+}
+
+.pol-4 {
+    bottom: 25%;
+    right: 30%;
+    transition-delay: 0.5s;
+    z-index: 21;
+}
+
+.envelope-wrapper.opening .pol-4 {
+    transform: scale(0.8) translate(190px, -120px) rotate(20deg);
     opacity: 1;
 }
 
@@ -1132,6 +1156,8 @@ body {
     background-size: cover;
     background-position: center;
     background-color: #fca085;
+    position: relative;
+    z-index: 20;
 }
 
 .pol-text {
@@ -1266,6 +1292,8 @@ body {
 .film-photo {
     width: 150px;
     height: 110px;
+    position: relative;
+    z-index: 20;
 }
 
 .film-holes {
@@ -1311,6 +1339,8 @@ body {
 .oval-photo {
     width: 100%;
     height: 100%;
+    position: relative;
+    z-index: 20;
 }
 
 .scrap-ribbon {
@@ -1653,6 +1683,7 @@ body {
     width: 120px;
     background: linear-gradient(135deg, #111, #444);
     border-radius: 8px;
+    z-index: 20;
 }
 
 /* Trust Sticker */
@@ -1780,6 +1811,8 @@ body {
     height: 140px;
     background: url('script/pandu8.jpeg') center/cover no-repeat;
     clip-path: path('M10 100 Q 30 20 60 10 T 90 100 Z');
+    position: relative;
+    z-index: 20;
 }
 
 /* Placements inner */
@@ -2607,6 +2640,8 @@ body {
     box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.5);
     background-position: center;
     background-size: cover;
+    position: relative;
+    z-index: 20;
 }
 
 .img-moment-1 {
@@ -3260,188 +3295,204 @@ body {
 }
 
 /* ===========================
-   PAGE 5: SLOT / ENVELOPE BASE STYLES
+   PAGE 5: SLOT & SQUARE LETTER
 =========================== */
-.slot-container {
+
+/* Wrapper: slot at top, letter drops below */
+.p5-slot-wrapper {
     position: relative;
-    width: 80%;
-    max-width: 320px;
-    height: 50px;
-    margin: 30px auto 0;
-}
-
-.slot-full {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #1a0008;
-    border-radius: 8px;
-    z-index: 2;
-}
-
-.slot-full::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: calc(100% - 30px);
-    height: 10px;
-    background: #000;
-    border-radius: 5px;
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
-}
-
-.envelope-mask {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: calc(100% - 30px);
-    height: 600px;
-    overflow: visible;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-}
-
-.envelope-wrapper-slot {
-    position: relative;
-    width: 230px;
-    height: 150px;
-    transform: translateY(-100%);
-    z-index: 1;
-}
-
-.env-back {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(145deg, #6b0018, #8B0000);
-    border-radius: 0 0 6px 6px;
-    z-index: 1;
-}
-
-.env-flap {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 50%;
-    background: linear-gradient(170deg, #7a001a, #9b0022);
-    clip-path: polygon(0 100%, 100% 100%, 50% 0);
-    transform-origin: bottom center;
-    transition: transform 0.8s ease;
-    z-index: 5;
-}
-
-.env-flap.open {
-    transform: rotateX(180deg);
-}
-
-.env-body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 55%;
-    background: linear-gradient(10deg, #5a0012, #7a001a);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 0, 0 100%);
-    z-index: 3;
-}
-
-.env-seal {
-    position: absolute;
-    top: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 1.2rem;
-    color: var(--gold);
-    z-index: 6;
-    text-shadow: 0 0 8px rgba(212, 165, 55, 0.6);
-}
-
-.letter-slot {
-    position: absolute;
-    top: 10%;
-    left: 8%;
-    right: 8%;
-    height: 10px;
-    background: #fff;
-    border-radius: 4px;
-    z-index: 2;
-    padding: 15px 10px;
+    width: 90%;
+    max-width: 360px;
+    min-height: 450px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    text-align: center;
-    opacity: 0;
-    overflow: visible;
-    transform: translate(0, 0) rotate(0deg);
-    transition: height 1.8s steps(8, end), opacity 0.5s ease, transform 1.8s steps(8, end);
 }
 
-.letter-slot.slide-out {
-    height: auto;
-    min-height: 540px;
-    opacity: 1;
-    transform: translate(30px, 40px) rotate(4deg);
-    overflow-y: auto;
-}
-
-.letter-title-slot {
-    font-family: var(--font-script);
-    font-size: 1.4rem;
-    color: var(--crimson);
-    margin-bottom: 5px;
-}
-
-.letter-line-slot {
-    width: 60%;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
-    margin-bottom: 8px;
-}
-
-.letter-content-slot {
-    font-family: var(--font-body);
-    font-size: 0.72rem;
-    color: #555;
-    line-height: 1.5;
-    padding-bottom: 15px;
-}
-
-.slot-bottom-lip {
-    position: absolute;
-    width: 100%;
-    height: 50%;
-    bottom: 0;
+/* The slot / hole at the TOP */
+.p5-slot {
+    position: relative;
+    width: 90%;
+    height: 50px;
     z-index: 10;
+    flex-shrink: 0;
 }
 
-.slot-bottom-lip::before {
-    content: '';
+.p5-slot-opening {
     position: absolute;
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: calc(100% - 30px);
-    height: 100%;
-    background: #1a0008;
-    border-radius: 0 0 8px 8px;
+    width: 85%;
+    height: 10px;
+    background: #000;
+    border-radius: 5px;
+    box-shadow: 
+        inset 0 2px 4px rgba(0,0,0,0.8),
+        0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-/* Page 5 envelope drop animation */
-@keyframes riseStutter {
-    0% { transform: translateY(-100%); }
-    20% { transform: translateY(-60%); }
-    30% { transform: translateY(-65%); }
-    50% { transform: translateY(-20%); }
-    60% { transform: translateY(-25%); }
-    80% { transform: translateY(5%); }
-    90% { transform: translateY(0%); }
-    100% { transform: translateY(0%); }
+.p5-slot-body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    background: linear-gradient(0deg, #1a0008, #0d0004);
+    border-radius: 10px 10px 0 0;
+    box-shadow: 
+        0 -4px 15px rgba(0, 0, 0, 0.4),
+        inset 0 -2px 6px rgba(0, 0, 0, 0.6);
+}
+
+/* Glow effect on the slot opening */
+.p5-slot-opening::before {
+    content: '';
+    position: absolute;
+    inset: -4px -8px;
+    background: radial-gradient(ellipse at center, rgba(212, 165, 55, 0.3), transparent 70%);
+    border-radius: 8px;
+    animation: slotGlow 2s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes slotGlow {
+    0% { opacity: 0.3; }
+    100% { opacity: 0.8; }
+}
+
+/* The SQUARE letter paper — drops downward */
+.p5-letter {
+    position: relative;
+    width: 280px;
+    height: 0;
+    overflow: hidden;
+    z-index: 3;
+    margin-top: -2px;
+    transition: none;
+}
+
+.p5-letter.rising {
+    animation: letterDrop 3s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.p5-letter-inner {
+    width: 280px;
+    height: 280px;
+    background: #fffef8;
+    border-radius: 0 0 6px 6px;
+    padding: 20px 16px 14px;
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.4),
+        0 2px 8px rgba(139, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(139, 0, 0, 0.08);
+    position: relative;
+    border: 1px solid rgba(212, 165, 55, 0.3);
+    border-top: none;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+/* Subtle paper texture */
+.p5-letter-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+        repeating-linear-gradient(
+            0deg,
+            transparent,
+            transparent 23px,
+            rgba(196, 30, 58, 0.05) 23px,
+            rgba(196, 30, 58, 0.05) 24px
+        );
+    border-radius: 0 0 6px 6px;
+    pointer-events: none;
+}
+
+/* Gold seal at top center */
+.p5-letter-seal {
+    position: absolute;
+    top: -1px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 24px;
+    background: radial-gradient(circle, var(--gold-light), var(--gold));
+    border-radius: 0 0 50% 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7rem;
+    color: #fff;
+    box-shadow: 0 3px 10px rgba(212, 165, 55, 0.5);
+    z-index: 5;
+}
+
+.p5-letter-title {
+    font-family: var(--font-script);
+    font-size: 1.3rem;
+    color: var(--crimson);
+    text-align: center;
+    margin-bottom: 4px;
+    margin-top: 8px;
+    flex-shrink: 0;
+}
+
+.p5-letter-divider {
+    width: 50%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--crimson), transparent);
+    margin: 0 auto 8px;
+    flex-shrink: 0;
+}
+
+.p5-letter-content {
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    color: #555;
+    line-height: 1.55;
+    text-align: left;
+    padding: 0 2px;
+    flex: 1;
+    overflow-y: auto;
+}
+
+.p5-letter-footer {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--crimson);
+    margin-top: 6px;
+    opacity: 0.7;
+    flex-shrink: 0;
+}
+
+/* Letter DROP animation — from slot downward */
+@keyframes letterDrop {
+    0% { 
+        height: 0;
+    }
+    15% { 
+        height: 42px;
+    }
+    30% { 
+        height: 112px;
+    }
+    50% { 
+        height: 196px;
+    }
+    70% { 
+        height: 260px;
+    }
+    85% { 
+        height: 286px;
+    }
+    100% { 
+        height: 280px;
+    }
 }
 
 /* Magic dust particles */

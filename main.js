@@ -646,12 +646,10 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ─── RANDOMIZE PHOTOS ─── */
     function randomizePhotos() {
         const totalPhotos = 22;
-        // Ganti nama file ini dengan foto ceweknya sendiri jika bukan pandu22.jpeg
-        const heroPhotoSrc = 'script/pandu22.jpeg'; 
         
-        // 1. (Dihapus) Foto halaman pertama sudah menggunakan foto-foto spesifik yang dipasang langsung di index.html
+        // 1. (Halaman pertama tidak diacak karena sudah diset di index.html)
 
-        // 2. Acak semua foto lainnya
+        // 2. Acak semua foto lainnya di semua halaman (Journey, Moment, dll)
         const randomPhotoSelectors = [
             '.pol-photo', '.film-photo', '.oval-photo', '.cut-photo', 
             '.girl-photo', '.pb-photo', '.card-image', '.moment-photo'
@@ -678,95 +676,161 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* ─── PAGE 5 ANIMATION ─── */
             window.startPage5Animation = function() {
-                const envFlap = document.getElementById('env-flap-page5');
-                const letter = document.getElementById('letter-page5');
-                const envWrapper = document.getElementById('env-wrapper-page5');
+                const letter = document.getElementById('p5-letter');
                 
-                if (!envFlap || !letter || !envWrapper) return;
+                if (!letter) return;
 
-                // Pastikan class reset terlebih dahulu (jika dibuka ulang)
-                envWrapper.style.animation = 'none';
-                envWrapper.offsetHeight; // trigger reflow
-                envWrapper.style.animation = 'riseStutter 3.2s 0.5s steps(6, end) forwards';
-                
-                envFlap.classList.remove('open');
-                letter.classList.remove('slide-out');
+                // Reset animation (jika dibuka ulang)
+                letter.classList.remove('rising');
+                letter.offsetHeight; // trigger reflow
 
-                // Hilangkan semua debu emas yang mungkin masih ada dari animasi sebelumnya
+                // Stop any previous voice playback
+                if (window._p5VoiceAudio) {
+                    window._p5VoiceAudio.pause();
+                    window._p5VoiceAudio.currentTime = 0;
+                    window._p5VoiceAudio = null;
+                }
+
+                // Hilangkan debu emas yang mungkin masih ada
                 document.querySelectorAll('.magic-dust').forEach(d => d.remove());
 
-                // Urutan buka amplop
+                // Daftar suara yang BENAR-BENAR ADA
+                const voices = [
+                    'script/pandu suara 1.ogg',
+                    'script/pandu suara 2.ogg',
+                    'script/pandu suara 3.ogg',
+                    'script/pandu suara 4.ogg'
+                ];
+
+                // Preload semua audio
+                const preloadedVoices = voices.map(src => {
+                    const audio = new Audio();
+                    audio.preload = 'auto';
+                    audio.src = src;
+                    return audio;
+                });
+
+                // Mulai animasi: surat turun dari lubang
                 setTimeout(() => {
-                    // 1. Secara ajaib amplop terbuka sendiri
-                    envFlap.classList.add('open');
+                    letter.classList.add('rising');
                     
-                    // 2. Segera setelah amplop kebuka, surat keluar dan debu emas beterbangan
+                    // Debu emas muncul saat surat mulai turun
                     setTimeout(() => {
-                        letter.classList.add('slide-out');
                         createDust();
+                    }, 500);
+
+                    // Voice sequence dimulai setelah surat sudah setengah keluar
+                    setTimeout(() => {
                         playVoiceSequence();
-                    }, 700);
+                    }, 1500);
 
-                }, 4000);
+                }, 800);
 
-                let currentVoiceAudio = null;
                 function playVoiceSequence() {
                     const bgMusic = document.getElementById('bg-music');
                     const originalVolume = bgMusic ? bgMusic.volume : 0.25;
-                    if (bgMusic) bgMusic.volume = 0.05; // Kecilkan musik latar
                     
-                    const voices = [
-                        'script/pandu suara 1.ogg',
-                        'script/pandu suara 2.ogg',
-                        'script/pandu suara 3.ogg',
-                        'script/pandu suara 4.ogg',
-                        'script/pandu suara 5.ogg'
-                    ];
+                    // Fade out background music smoothly
+                    if (bgMusic) {
+                        let fadeVol = bgMusic.volume;
+                        const fadeOut = setInterval(() => {
+                            fadeVol = Math.max(0.03, fadeVol - 0.03);
+                            bgMusic.volume = fadeVol;
+                            if (fadeVol <= 0.03) clearInterval(fadeOut);
+                        }, 50);
+                    }
+                    
                     let currentIndex = 0;
                     
                     function playNext() {
-                        if (currentIndex >= voices.length) {
-                            if (bgMusic) bgMusic.volume = originalVolume; // Kembalikan volume musik
+                        if (currentIndex >= preloadedVoices.length) {
+                            // Fade back in background music
+                            if (bgMusic) {
+                                let fadeVol = bgMusic.volume;
+                                const fadeIn = setInterval(() => {
+                                    fadeVol = Math.min(originalVolume, fadeVol + 0.02);
+                                    bgMusic.volume = fadeVol;
+                                    if (fadeVol >= originalVolume) clearInterval(fadeIn);
+                                }, 50);
+                            }
+                            window._p5VoiceAudio = null;
                             return;
                         }
-                        currentVoiceAudio = new Audio(voices[currentIndex]);
-                        currentVoiceAudio.play().catch(e => {
-                            console.log("Gagal memutar audio: ", e);
+                        
+                        const audio = preloadedVoices[currentIndex];
+                        window._p5VoiceAudio = audio;
+                        audio.currentTime = 0;
+                        audio.volume = 1.0;
+                        
+                        audio.play().then(() => {
+                            // Successfully playing
+                        }).catch(e => {
+                            console.warn("Gagal memutar suara " + (currentIndex + 1) + ":", e.message);
                             currentIndex++;
-                            playNext();
+                            // Coba langsung ke suara berikutnya
+                            setTimeout(playNext, 300);
                         });
-                        currentVoiceAudio.onended = () => {
+                        
+                        audio.onended = () => {
                             currentIndex++;
-                            playNext();
+                            // Jeda kecil antar suara agar lebih natural
+                            setTimeout(playNext, 400);
+                        };
+                        
+                        audio.onerror = () => {
+                            console.warn("Error loading suara " + (currentIndex + 1));
+                            currentIndex++;
+                            setTimeout(playNext, 300);
                         };
                     }
                     
-                    if (currentVoiceAudio) {
-                        currentVoiceAudio.pause();
-                    }
                     playNext();
                 }
 
+                // Stop voice when leaving page 5
+                const page5El = document.getElementById('page-5');
+                if (page5El && !page5El._p5Observer) {
+                    page5El._p5Observer = new MutationObserver(() => {
+                        if (!page5El.classList.contains('active')) {
+                            // Stop voice playback
+                            if (window._p5VoiceAudio) {
+                                window._p5VoiceAudio.pause();
+                                window._p5VoiceAudio.currentTime = 0;
+                                window._p5VoiceAudio = null;
+                            }
+                            // Restore bg music volume
+                            const bgMusic = document.getElementById('bg-music');
+                            if (bgMusic) bgMusic.volume = 0.25;
+                        }
+                    });
+                    page5El._p5Observer.observe(page5El, { attributes: true, attributeFilter: ['class'] });
+                }
+
                 function createDust() {
+                    const slotWrapper = document.querySelector('.p5-slot-wrapper');
+                    if (!slotWrapper) return;
+                    
                     for(let i=0; i<30; i++) {
                         let dust = document.createElement('div');
                         dust.className = 'magic-dust';
                         
-                        dust.style.left = '50%';
-                        dust.style.top = '30%';
+                        // Start from the slot opening area (at the top)
+                        dust.style.left = (40 + Math.random() * 20) + '%';
+                        dust.style.top = '50px';
                         
                         let angle = Math.random() * Math.PI * 2;
-                        let dist = 80 + Math.random() * 150; 
+                        let dist = 60 + Math.random() * 120; 
                         let tx = Math.cos(angle) * dist + 'px';
                         let ty = Math.sin(angle) * dist + 'px';
                         
                         dust.style.setProperty('--tx', tx);
                         dust.style.setProperty('--ty', ty);
                         
-                        dust.style.animation = `poof ${1 + Math.random()}s ${Math.random()*0.3}s ease-out forwards`;
+                        dust.style.animation = `poof ${1 + Math.random()}s ${Math.random()*0.5}s ease-out forwards`;
                         
-                        envWrapper.appendChild(dust);
+                        slotWrapper.appendChild(dust);
                         setTimeout(()=> dust.remove(), 2000);
                     }
                 }
             };
+
